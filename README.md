@@ -1,2 +1,2 @@
-DECIDE - ZAPDOS
+DECIDE - ZAPDOS - VOTACIÓN
 ---------------
