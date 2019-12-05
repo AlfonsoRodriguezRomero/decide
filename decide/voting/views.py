@@ -4,18 +4,24 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from rest_framework.response import Response
-
+from django.views.generic import TemplateView
 from .models import Question, QuestionOption, Voting
 from .serializers import SimpleVotingSerializer, VotingSerializer
 from base.perms import UserIsStaff
 from base.models import Auth
-
+from django.shortcuts import render
+import json
 
 class VotingView(generics.ListCreateAPIView):
     queryset = Voting.objects.all()
     serializer_class = VotingSerializer
     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_fields = ('id', )
+
+    def voting_list(request):
+        votings = Voting.objects.all()
+        
+        return render(request,'voting/voting.html',{'votings':votings})
 
     def get(self, request, *args, **kwargs):
         version = request.version
@@ -54,6 +60,7 @@ class VotingUpdate(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = VotingSerializer
     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     permission_classes = (UserIsStaff,)
+    
 
     def put(self, request, voting_id, *args, **kwars):
         action = request.data.get('action')
@@ -99,3 +106,5 @@ class VotingUpdate(generics.RetrieveUpdateDestroyAPIView):
             msg = 'Action not found, try with start, stop or tally'
             st = status.HTTP_400_BAD_REQUEST
         return Response(msg, status=st)
+
+

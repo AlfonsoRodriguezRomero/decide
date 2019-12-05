@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html>
+{% load i18n static %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+{% block content %}
+    <div id="app-voting">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Decide</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  
+                  <form class="form-inline my-8 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+              </nav>
+        <div class="container">
+        <div class="card my-5 ">
+        <div class="card-header">
+            VOTINGS
+        </div>
+        
+            <table class="table  ">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col" class="col-md-1">#</th>
+                    <th scope="col" class="col-md-4">Name</th>
+                    <th scope="col" class="col-md-4">Start Date</th>
+                    <th scope="col" class="col-md-4">End Date</th>
+                  </tr>
+                </thead>
+                <tbody class="table-info">
+               {% for voting in votings %}
+                  <tr>
+                    <td class="col-md-1">{{voting.id}}</td>
+                    <td class="col-md-4">{{voting.name}}</td>
+                    {% if voting.start_date == null %}
+                    <td class="col-md-4">Not stated</td>
+                    {% endif %}
+                    {% if voting.start_date %}
+                    <td class="col-md-4">{{voting.start_date}}</td>
+                    {% endif %}
+                    {% if voting.end_date == null %}
+                    <td class="col-md-4">Unfinished</td>
+                    {% endif %}
+                    {% if voting.end_date %}
+                    <td class="col-md-4">{{voting.end_date}}</td>
+                    {% endif %}
+
+                  </tr>
+                 {% endfor %}
+                </tbody>
+              </table>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+</html>
