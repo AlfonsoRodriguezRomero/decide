@@ -11,6 +11,7 @@ from base.perms import UserIsStaff
 from base.models import Auth
 from django.shortcuts import render
 import json
+from django.db.models import Q
 
 class VotingView(generics.ListCreateAPIView):
     queryset = Voting.objects.all()
@@ -20,7 +21,12 @@ class VotingView(generics.ListCreateAPIView):
 
     def voting_list(request):
         votings = Voting.objects.all()
-        
+        queryset = request.GET.get('campo')
+        if queryset:
+            votings= Voting.objects.filter(
+                Q(name__icontains=queryset)|
+                Q(id__icontains=queryset)
+            )
         return render(request,'voting/voting.html',{'votings':votings})
 
     def get(self, request, *args, **kwargs):
@@ -52,6 +58,7 @@ class VotingView(generics.ListCreateAPIView):
                                           defaults={'me': True, 'name': 'test auth'})
         auth.save()
         voting.auths.add(auth)
+        return redirect('')
         return Response({}, status=status.HTTP_201_CREATED)
 
 
