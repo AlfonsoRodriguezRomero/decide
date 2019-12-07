@@ -65,6 +65,7 @@
                         <th scope="col" class="col-md-4">End Date</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody class="table-info">
@@ -84,8 +85,8 @@
                         {% if voting.end_date %}
                         <td class="col-md-4">{{voting.end_date}}</td>
                         {% endif %}
-                        <td><a href="/admin/voting/voting/{{voting.id}}/change/" class="btn btn-warning">Edit</a></td>
-
+                        <td><a href="/voting/edit_voting/{{voting.id}}" class="btn btn-warning">Edit</a></td>
+                        <td><a href="/admin/voting/voting/{{voting.id}}/delete/" class="btn btn-danger">Delete</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -93,7 +94,7 @@
             
         </div>
         <div class="my-4 text-left">
-                <a class="btn btn-primary" href="/admin/voting/voting/add/" role="button">Create voting</a>
+                <a class="btn btn-primary" href="{% url 'add_voting' %}" role="button">Create voting</a>
             </div>
     </div>
     
