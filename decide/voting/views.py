@@ -137,3 +137,10 @@ def edit_voting(request,id=None):
         vo.save()
         return redirect('list_voting')
     return render(request,"voting/voting_edit.html",{'form':form})
+
+def delete_voting(request,id=None):
+    voting = get_object_or_404(Voting,id=id)
+    if request.method == "POST":
+        voting.delete()
+        return redirect('list_voting')
+    return render(request,"voting/voting_delete.html",{'voting':voting})

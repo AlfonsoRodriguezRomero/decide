@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views 
-from .views import voting_list,add_voting, edit_voting
+from .views import voting_list,add_voting, edit_voting,delete_voting
 
 
 urlpatterns = [
@@ -8,6 +8,7 @@ urlpatterns = [
     path('<int:voting_id>/', views.VotingUpdate.as_view(), name='voting'),
     path('', voting_list,name='list_voting'),
     path('add_voting/',add_voting,name="add_voting"),
-    path('edit_voting/<int:id>',edit_voting)
+    path('edit_voting/<int:id>',edit_voting),
+    path('delete_voting/<int:id>',delete_voting),
 ]
  
