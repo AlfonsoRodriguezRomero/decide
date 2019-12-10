@@ -144,3 +144,11 @@ def delete_voting(request,id=None):
         voting.delete()
         return redirect('list_voting')
     return render(request,"voting/voting_delete.html",{'voting':voting})
+
+def start_date(request,id=None):
+    voting=get_object_or_404(Voting,id=id)
+    if not voting.start_date:
+        voting.start_date = timezone.now()
+        voting.save()
+        return redirect('list_voting')
+     
