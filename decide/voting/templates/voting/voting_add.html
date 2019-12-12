@@ -69,12 +69,25 @@
                                 title="Add another question">Add other question<img src="/static/admin/img/icon-addlink.svg"
                                     alt="Add" /></a>
                             <br>
-                            
+
                             <div class="dropdown-divider"></div>
                             <div class="form-group">
                                 <label>Auth</label>
                                 {{form.auths}}
                             </div>
+
+                            <div class="dropdown-divider"></div>
+                            <div class="form-group">
+                                <label>Start date</label>
+                                {{form.start_date}}
+                            </div>
+
+                            <div class="dropdown-divider"></div>
+                            <div class="form-group">
+                                <label>End date</label>
+                                {{form.end_date}}
+                            </div>
+
 
                             <input type="submit" class="btn  btn-primary" value="Submit">
                         </form>
