@@ -1,5 +1,5 @@
 from django.contrib.admin import SimpleListFilter
-
+from datetime import datetime
 
 class StartedFilter(SimpleListFilter):
     title = 'started'
@@ -14,13 +14,15 @@ class StartedFilter(SimpleListFilter):
         ]
 
     def queryset(self, request, queryset):
+        today = datetime.now()
+        print(today)
         if self.value() == 'NS':
-            return queryset.filter(start_date__isnull=True)
+            return queryset.filter(start_date__gte=today)
         if self.value() == 'S':
-            return queryset.exclude(start_date__isnull=True)
+            return queryset.filter(start_date__lte=today, end_date__gte=today)
         if self.value() == 'R':
-            return queryset.exclude(start_date__isnull=True).filter(end_date__isnull=True)
+            return queryset.filter(start_date__lte=today, end_date__gte=today)
         if self.value() == 'F':
-            return queryset.exclude(end_date__isnull=True)
+            return queryset.filter(start_date__isnull=False,end_date__lte=today)
         else:
             return queryset.all()
