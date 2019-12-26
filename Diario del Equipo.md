@@ -18,10 +18,10 @@
 
 <h1>Resumen de total de reuniones empleadas en el equipo</h1>
 
-    Total de reuniones: 1
-    Total de reuniones presenciales: 0
+    Total de reuniones: 2
+    Total de reuniones presenciales: 1
     Total de reuniones virtuales: 1
-    Total de tiempo empleado en reuniones presenciales: 0
+    Total de tiempo empleado en reuniones presenciales: 3h
     Total de tiempo empleado en reuniones virtuales: 1h 40min
 
 <h1>Actas de acuerdos de las reuniones en las que se tomaron decisiones importantes
@@ -52,4 +52,38 @@ ACTA 2019-01</h1>
         <LI>Consenso sobre el modo de trabajo
 	  </UL>
     </PRE></CODE>
+
+<hr>
+
+<h1>Acta de la reunión de preparación para el milestone 2 
+ACTA 2019-02</h1>
+<h2>ACTA 2019-12-12</h2>
+<PRE><CODE>
+  <UL>
+	  <LI><H3>Asistentes:</H3> 
+      <UL>
+        <LI>Alberto Ángel González
+        <LI>Francisco Javier Elena Fernández
+        <LI>Daniel Hinojo García
+        <LI>Alfonso Manuel Rodríguez Romero
+        <LI>Lorenzo Rondán Domínguez
+       </UL>
+	  <LI><H3>Orden del dia:</H3> 
+       <UL>
+        <LI>Estado de las tareas asignadas a cada miembro
+	<LI>Renombrado de las ramas de desarollo
+        <LI>Estrategia de unión de tareas finalizadas
+        <LI>Elaboración de plantilla para las incidencias
+       <LI>Elaboración de plantilla para los commits
+       <LI>Ejecución de los procedimientos necesarios para el despliegue
+       </UL>
+    <LI><H3>Acuerdos tomados:</H3> 
+      <UL>
+        <LI>Sustitución y asignación de tareas más importes
+        <LI>Consenso para aplicar la plantilla al realizar commits o issues
+        <LI>Fijación de la próxima reunión antes del milestone 2
+	  </UL>
+    </PRE></CODE>
+	      
+
     
