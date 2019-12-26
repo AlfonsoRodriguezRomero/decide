@@ -24,8 +24,8 @@
     Total de tiempo empleado en reuniones presenciales: 3h
     Total de tiempo empleado en reuniones virtuales: 1h 40min
 
-<h1>Actas de acuerdos de las reuniones en las que se tomaron decisiones importantes
-ACTA 2019-01</h1>
+<h1>Actas de acuerdos de las reuniones en las que se tomaron decisiones importantes -
+(ACTA 2019-01)</h1>
 <h2>ACTA 2019-11-28</h2>
 <PRE><CODE>
   <UL>
@@ -55,8 +55,8 @@ ACTA 2019-01</h1>
 
 <hr>
 
-<h1>Acta de la reunión de preparación para el milestone 2 
-ACTA 2019-02</h1>
+<h1>Acta de la reunión de preparación para el milestone 2 -
+(ACTA 2019-02)</h1>
 <h2>ACTA 2019-12-12</h2>
 <PRE><CODE>
   <UL>
