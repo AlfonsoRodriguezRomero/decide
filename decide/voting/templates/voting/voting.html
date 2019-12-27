@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block extrahead %}
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="app-voting">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Decide</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <form class="form-inline my-8 my-lg-0" method="GET">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="campo" value="{{resquest.GET.campo}}" >
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+        {% if not user.is_authenticated %}
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/login">Login</a>
+            </li>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/logout">Logout</a>
+                </li>
+                {% endif %}
+    </nav>
+    {% if not user.is_authenticated %}
+    <div class="container my-5" >
+        <h3 class="text-danger">You need to login to access this resource!</h3>
+    </div>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <div class="container">
+        <div class="card my-5 ">
+            <div class="card-header">
+                VOTINGS
+            </div>
+
+            <table class="table  ">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="col-md-1">#</th>
+                        <th scope="col" class="col-md-4">Name</th>
+                        <th scope="col" class="col-md-4">Start Date</th>
+                        <th scope="col" class="col-md-4">End Date</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="table-info">
+                    {% for voting in votings %}
+                    <tr>
+                        <td class="col-md-1">{{voting.id}}</td>
+                        <td class="col-md-4">{{voting.name}}</td>
+                        {% if voting.start_date == null %}
+                        <td class="col-md-4">Not stated</td>
+                        {% endif %}
+                        {% if voting.start_date %}
+                        <td class="col-md-4">{{voting.start_date}}</td>
+                        {% endif %}
+                        {% if voting.end_date == null %}
+                        <td class="col-md-4">Unfinished</td>
+                        {% endif %}
+                        {% if voting.end_date %}
+                        <td class="col-md-4">{{voting.end_date}}</td>
+                        {% endif %}
+                        <td><a href=""></a></td>
+                        <td><a href="/voting/edit_voting/{{voting.id}}" class="btn btn-warning">Edit</a></td>
+                        <td><a href="/voting/delete_voting/{{voting.id}}" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+        </div>
+        <div class="my-4 text-left">
+                <a class="btn btn-primary" href="{% url 'add_voting' %}" role="button">Create voting</a>
+            </div>
+    </div>
+    
+    {% endif %}
+</div>
+
+{% endblock %}
+
