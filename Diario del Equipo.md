@@ -106,7 +106,29 @@
        </UL>
     <LI><H3>Acuerdos tomados:</H3> 
       <UL>
-        <LI>
         <LI>Se hará únicamente despliegue de la rama master
+	  </UL>
+    </PRE></CODE>
+	      
+<h1>Acta de la reunión para configurar Heroku -
+(ACTA 2019-05)</h1>
+<h2>ACTA 2019-12-28</h2>
+<PRE><CODE>
+  <UL>
+	  <LI><H3>Asistentes:</H3> 
+      <UL>
+        <LI>Alberto Ángel González
+        <LI>Francisco Javier Elena Fernández
+        <LI>Daniel Hinojo García
+        <LI>Alfonso Manuel Rodríguez Romero
+        <LI>Lorenzo Rondán Domínguez
+       </UL>
+	  <LI><H3>Orden del dia:</H3> 
+       <UL>
+        <LI>Configuración de Heroku
+       </UL>
+    <LI><H3>Acuerdos tomados:</H3> 
+      <UL>
+        <LI>Contactar con el profesor para intentar solucionar los problemas de despliegue
 	  </UL>
     </PRE></CODE>
