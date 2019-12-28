@@ -25,6 +25,7 @@ script:
 #- python-codacy-coverage -r coverage.xml
 #- python ./manage.py test
 deploy:
+  skip_cleanup: true
   provider: heroku
   app: decide-zapdos-votacion
   strategy: git
