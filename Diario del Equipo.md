@@ -84,6 +84,29 @@
         <LI>Fijación de la próxima reunión antes del milestone 2
 	  </UL>
     </PRE></CODE>
-	      
 
-    
+<hr>
+
+<h1>Acta de la reunión para configurar Travis -
+(ACTA 2019-03)</h1>
+<h2>ACTA 2019-12-16</h2>
+<PRE><CODE>
+  <UL>
+	  <LI><H3>Asistentes:</H3> 
+      <UL>
+        <LI>Alberto Ángel González
+        <LI>Francisco Javier Elena Fernández
+        <LI>Daniel Hinojo García
+        <LI>Alfonso Manuel Rodríguez Romero
+        <LI>Lorenzo Rondán Domínguez
+       </UL>
+	  <LI><H3>Orden del dia:</H3> 
+       <UL>
+        <LI>Configurar Travis
+       </UL>
+    <LI><H3>Acuerdos tomados:</H3> 
+      <UL>
+        <LI>
+        <LI>Se hará únicamente despliegue de la rama master
+	  </UL>
+    </PRE></CODE>
