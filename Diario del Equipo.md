@@ -112,8 +112,7 @@
 
 <hr>
 
-    <h1>Acta de la reunión para reparto de memoria -
-    (ACTA 2019-04)</h1>
+<h1>Acta de la reunión para reparto de memoria -(ACTA 2019-04)</h1>
     <h2>ACTA 2019-12-27</h2>
     <PRE><CODE>
       <UL>
