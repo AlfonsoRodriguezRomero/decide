@@ -18,11 +18,11 @@
 
 <h1>Resumen de total de reuniones empleadas en el equipo</h1>
 
-    Total de reuniones: 2
-    Total de reuniones presenciales: 1
-    Total de reuniones virtuales: 1
-    Total de tiempo empleado en reuniones presenciales: 3h
-    Total de tiempo empleado en reuniones virtuales: 1h 40min
+    Total de reuniones: 5
+    Total de reuniones presenciales: 2
+    Total de reuniones virtuales: 3
+    Total de tiempo empleado en reuniones presenciales: 4h
+    Total de tiempo empleado en reuniones virtuales: 4h 10min
 
 <h1>Actas de acuerdos de las reuniones en las que se tomaron decisiones importantes -
 (ACTA 2019-01)</h1>
