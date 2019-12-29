@@ -22,14 +22,14 @@
     Total de reuniones presenciales: 2
     Total de reuniones virtuales: 3
     Total de tiempo empleado en reuniones presenciales: 4h
-    Total de tiempo empleado en reuniones virtuales: 4h 10min
+    Total de tiempo empleado en reuniones virtuales: 6h 10min
 
 <h1>Actas de acuerdos de las reuniones en las que se tomaron decisiones importantes -
 (ACTA 2019-01)</h1>
 <h2>ACTA 2019-11-28</h2>
 <PRE><CODE>
   <UL>
-	  <LI><H3>Asistentes:</H3> 
+	  <LI><H3>Asistentes:</H3>
       <UL>
         <LI>Alberto Ángel González
         <LI>Francisco Javier Elena Fernández
@@ -37,7 +37,7 @@
         <LI>Alfonso Manuel Rodríguez Romero
         <LI>Lorenzo Rondán Domínguez
        </UL>
-	  <LI><H3>Orden del dia:</H3> 
+	  <LI><H3>Orden del dia:</H3>
        <UL>
         <LI>Creación de tareas/mejoras
         <LI>Reparto de tareas
@@ -45,7 +45,7 @@
        <LI>Diario de grupos
        <LI>Revisión de requisitos que tenemos que entregar M3 (lineas de código, diario, etc)
        </UL>
-    <LI><H3>Acuerdos tomados:</H3> 
+    <LI><H3>Acuerdos tomados:</H3>
       <UL>
         <LI>Elicitación de tareas las cuales hay que llevar a cabo
         <LI>Asignación de tareas a cada miembro del grupo de trabajo
@@ -60,7 +60,7 @@
 <h2>ACTA 2019-12-12</h2>
 <PRE><CODE>
   <UL>
-	  <LI><H3>Asistentes:</H3> 
+	  <LI><H3>Asistentes:</H3>
       <UL>
         <LI>Alberto Ángel González
         <LI>Francisco Javier Elena Fernández
@@ -68,7 +68,7 @@
         <LI>Alfonso Manuel Rodríguez Romero
         <LI>Lorenzo Rondán Domínguez
        </UL>
-	  <LI><H3>Orden del dia:</H3> 
+	  <LI><H3>Orden del dia:</H3>
        <UL>
         <LI>Estado de las tareas asignadas a cada miembro
 	<LI>Renombrado de las ramas de desarollo
@@ -77,7 +77,7 @@
        <LI>Elaboración de plantilla para los commits
        <LI>Ejecución de los procedimientos necesarios para el despliegue
        </UL>
-    <LI><H3>Acuerdos tomados:</H3> 
+    <LI><H3>Acuerdos tomados:</H3>
       <UL>
         <LI>Sustitución y asignación de tareas más importes
         <LI>Consenso para aplicar la plantilla al realizar commits o issues
@@ -92,7 +92,7 @@
 <h2>ACTA 2019-12-16</h2>
 <PRE><CODE>
   <UL>
-	  <LI><H3>Asistentes:</H3> 
+	  <LI><H3>Asistentes:</H3>
       <UL>
         <LI>Alberto Ángel González
         <LI>Francisco Javier Elena Fernández
@@ -100,22 +100,47 @@
         <LI>Alfonso Manuel Rodríguez Romero
         <LI>Lorenzo Rondán Domínguez
        </UL>
-	  <LI><H3>Orden del dia:</H3> 
+	  <LI><H3>Orden del dia:</H3>
        <UL>
         <LI>Configurar Travis
        </UL>
-    <LI><H3>Acuerdos tomados:</H3> 
+    <LI><H3>Acuerdos tomados:</H3>
       <UL>
         <LI>Se hará únicamente despliegue de la rama master
 	  </UL>
     </PRE></CODE>
-	      
+
+<hr>
+
+    <h1>Acta de la reunión para reparto de memoria -
+    (ACTA 2019-04)</h1>
+    <h2>ACTA 2019-12-27</h2>
+    <PRE><CODE>
+      <UL>
+    	  <LI><H3>Asistentes:</H3>
+          <UL>
+            <LI>Francisco Javier Elena Fernández
+            <LI>Daniel Hinojo García
+            <LI>Lorenzo Rondán Domínguez
+           </UL>
+    	  <LI><H3>Orden del dia:</H3>
+           <UL>
+            <LI>Reparto de tareas de la memoria de proyecto
+           </UL>
+        <LI><H3>Acuerdos tomados:</H3>
+          <UL>
+            <LI> Reparto de diferentes puntos de la memoria entre los miembros del equipo
+            <LI> Se establecen las fechas limites para desarollo de tareas, tests y documentación
+    	  </UL>
+        </PRE></CODE>
+<hr>
+
 <h1>Acta de la reunión para configurar Heroku -
 (ACTA 2019-05)</h1>
 <h2>ACTA 2019-12-28</h2>
 <PRE><CODE>
   <UL>
-	  <LI><H3>Asistentes:</H3> 
+	  <LI><H3>Asistentes:</H3>
       <UL>
         <LI>Alberto Ángel González
         <LI>Francisco Javier Elena Fernández
@@ -123,11 +148,11 @@
         <LI>Alfonso Manuel Rodríguez Romero
         <LI>Lorenzo Rondán Domínguez
        </UL>
-	  <LI><H3>Orden del dia:</H3> 
+	  <LI><H3>Orden del dia:</H3>
        <UL>
         <LI>Configuración de Heroku
        </UL>
-    <LI><H3>Acuerdos tomados:</H3> 
+    <LI><H3>Acuerdos tomados:</H3>
       <UL>
         <LI>Contactar con el profesor para intentar solucionar los problemas de despliegue
 	  </UL>
