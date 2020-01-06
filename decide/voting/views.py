@@ -120,14 +120,18 @@ def voting_list(request):
 
 
 def add_voting(request):
-    form= VotingForm(request.POST)
-    if form.is_valid():
-        vo = form.save()
-        vo.save()
-        form=VotingForm
+    form = VotingForm()
+    if request.method == 'POST':
+        form= VotingForm(request.POST)
+        if form.is_valid():
+            vo = form.save()
+            vo.save()
+            form=VotingForm
 
-        return redirect('list_voting')
-    return render(request,"voting/voting_add.html",{'form':form})
+            return redirect('list_voting')
+        else:
+            print (form.errors)
+    return render(request,'voting/voting_add.html',{'form':form})
 
 def edit_voting(request,id=None):
     voting=get_object_or_404(Voting,id=id)
