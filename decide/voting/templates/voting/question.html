@@ -51,55 +51,35 @@
     <div class="container">
         <div class="card my-5 ">
             <div class="card-header">
-                VOTINGS
+                QUESTIONS
             </div>
 
             <table class="table  ">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col" class="col-md-1">#</th>
-                        <th scope="col" class="col-md-4">Name</th>
-                        <th scope="col" class="col-md-4">Start Date</th>
-                        <th scope="col" class="col-md-4">End Date</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th scope="col" class="col-md-4">Description</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody class="table-info">
-                    {% for voting in votings %}
+                    {% for question in questions %}
                     <tr>
-                        <td class="col-md-1">{{voting.id}}</td>
-                        <td class="col-md-4">{{voting.name}}</td>
-                        {% if voting.start_date == null %}
-                        <td class="col-md-4">Not stated</td>
-                        {% endif %}
-                        {% if voting.start_date %}
-                        <td class="col-md-4">{{voting.start_date}}</td>
-                        {% endif %}
-                        {% if voting.end_date == null %}
-                        <td class="col-md-4">Unfinished</td>
-                        {% endif %}
-                        {% if voting.end_date %}
-                        <td class="col-md-4">{{voting.end_date}}</td>
-                        {% endif %}
-                        <td><a href=""></a></td>
-                        <td><a href="/voting/edit_voting/{{voting.id}}" class="btn btn-warning">Edit</a></td>
-                        <td><a href="/voting/delete_voting/{{voting.id}}" class="btn btn-danger">Delete</a></td>
+                        <td class="col-md-1">{{question.id}}</td>
+                        <td class="col-md-1">{{question.desc}}</td>
+                        <td><a href="/voting/delete_question/{{question.id}}" class="btn btn-danger">Delete</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            
+
         </div>
         <div class="my-4 text-left">
-                <a class="btn btn-primary" href="{% url 'add_voting' %}" role="button">Create voting</a>
+                <a class="btn btn-primary" href="/admin/voting/question/add/" role="button">Create question</a>
             </div>
     </div>
-    
+
     {% endif %}
 </div>
 
 {% endblock %}
-
