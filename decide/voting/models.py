@@ -8,7 +8,10 @@ from django import forms
 from base import mods
 from base.models import Auth, Key
 
-
+ELECCION_SEXO = (
+    ('hombre','HOMBRE'),
+    ('mujer','MUJER'),
+)
 class Question(models.Model):
     desc = models.TextField()
 
@@ -24,7 +27,7 @@ class QuestionOption(models.Model):
     question = models.ForeignKey(Question, related_name='options', on_delete=models.CASCADE)
     number = models.PositiveIntegerField(blank=True, null=True)
     option = models.TextField()
-
+    sexo=models.CharField(max_length=6, choices=ELECCION_SEXO, default='hombre')
     def save(self):
         if not self.number:
             self.number = self.question.options.count() + 2
