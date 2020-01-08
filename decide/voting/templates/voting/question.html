@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block extrahead %}
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="app-voting">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Decide</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <form class="form-inline my-8 my-lg-0" method="GET">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="campo" value="{{resquest.GET.campo}}" >
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+        {% if not user.is_authenticated %}
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/login">Login</a>
+            </li>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/logout">Logout</a>
+                </li>
+                {% endif %}
+    </nav>
+    {% if not user.is_authenticated %}
+    <div class="container my-5" >
+        <h3 class="text-danger">You need to login to access this resource!</h3>
+    </div>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <div class="container">
+        <div class="card my-5 ">
+            <div class="card-header">
+                QUESTIONS
+            </div>
+
+            <table class="table  ">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="col-md-1">#</th>
+                        <th scope="col" class="col-md-4">Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="table-info">
+                    {% for question in questions %}
+                    <tr>
+                        <td class="col-md-1">{{question.id}}</td>
+                        <td class="col-md-1">{{question.desc}}</td>
+                        <td><a href="/voting/delete_question/{{question.id}}" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        <div class="my-4 text-left">
+                <a class="btn btn-primary" href="/admin/voting/question/add/" role="button">Create question</a>
+            </div>
+    </div>
+
+    {% endif %}
+</div>
+
+{% endblock %}

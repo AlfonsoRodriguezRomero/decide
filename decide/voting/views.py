@@ -11,7 +11,7 @@ from base.perms import UserIsStaff
 from base.models import Auth
 from django.shortcuts import render,redirect
 from django.db.models import Q
-from .form import VotingForm
+from .form import VotingForm, QuestionForm, QuestionOptionForm
 from django.contrib import messages
 
 
@@ -22,7 +22,7 @@ class VotingView(generics.ListCreateAPIView):
     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_fields = ('id', )
 
-    
+
     def get(self, request, *args, **kwargs):
         version = request.version
         if version not in settings.ALLOWED_VERSIONS:
@@ -61,7 +61,7 @@ class VotingUpdate(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = VotingSerializer
     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     permission_classes = (UserIsStaff,)
-    
+
 
     def put(self, request, voting_id, *args, **kwars):
         action = request.data.get('action')
@@ -120,14 +120,18 @@ def voting_list(request):
 
 
 def add_voting(request):
-    form= VotingForm(request.POST)
-    if form.is_valid():
-        vo = form.save()
-        vo.save()
-        form=VotingForm
-       
-        return redirect('list_voting')
-    return render(request,"voting/voting_add.html",{'form':form})
+    form = VotingForm()
+    if request.method == 'POST':
+        form= VotingForm(request.POST)
+        if form.is_valid():
+            vo = form.save()
+            vo.save()
+            form=VotingForm
+
+            return redirect('list_voting')
+        else:
+            print (form.errors)
+    return render(request,'voting/voting_add.html',{'form':form})
 
 def edit_voting(request,id=None):
     voting=get_object_or_404(Voting,id=id)
@@ -151,4 +155,34 @@ def start_date(request,id=None):
         voting.start_date = timezone.now()
         voting.save()
         return redirect('list_voting')
-     
+
+def add_question(request):
+    form= QuestionForm(request.POST)
+    formOption = QuestionOptionForm(request.POST)
+    if form.is_valid() and formOption.is_valid():
+            question = form.save()
+            options = formOption.save(commit=False)
+            options.question = question
+            options.save()
+            question.save()
+            form=QuestionForm
+            formOption = QuestionOptionForm
+            return redirect('list_question')
+    return render(request,"voting/question_add.html",{'form':form, 'formOption':formOption})
+
+def question_list(request):
+        questions = Question.objects.all()
+        queryset = request.GET.get('campo')
+        if queryset:
+            questions= Question.objects.filter(
+                Q(desc__icontains=queryset)|
+                Q(id__icontains=queryset)
+            )
+        return render(request,'voting/question.html',{'questions':questions})
+
+def delete_question(request,id=None):
+    question = get_object_or_404(Question,id=id)
+    if request.method == "POST":
+        question.delete()
+        return redirect('list_question')
+    return render(request,"voting/question_delete.html",{'question':question})
