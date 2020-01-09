@@ -11,6 +11,7 @@ from base.models import Auth, Key
 
 class Question(models.Model):
     desc = models.TextField()
+    with_weight = models.BooleanField(default=False)
 
     def __str__(self):
         return self.desc
@@ -24,10 +25,13 @@ class QuestionOption(models.Model):
     question = models.ForeignKey(Question, related_name='options', on_delete=models.CASCADE)
     number = models.PositiveIntegerField(blank=True, null=True)
     option = models.TextField()
+    position = models.PositiveIntegerField(blank=True, null=True)
 
     def save(self):
         if not self.number:
             self.number = self.question.options.count() + 2
+        if not self.position:
+            self.position = self.question.options.count() + 1
         return super().save()
 
     def __str__(self):

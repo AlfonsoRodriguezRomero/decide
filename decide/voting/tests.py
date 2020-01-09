@@ -83,6 +83,26 @@ class VotingTestCase(BaseTestCase):
                 mods.post('store', json=data)
         return clear
 
+    def test_voting_with_weight(self):
+        v = self.create_voting()
+        self.create_voters(v)
+
+        v.create_pubkey()
+        v.start_date = timezone.now()
+        v.save()
+
+        self.login()  # set token
+        v.tally_votes(self.token)
+
+        tally = v.tally
+        tally.sort()
+        tally = {k: len(list(x)) for k, x in itertools.groupby(tally)}
+
+        i = 0
+        for q in v.question.options.all():
+            i = i+1
+            self.assertEqual(q.position, i)
+'''
     def test_complete_voting(self):
         v = self.create_voting()
         self.create_voters(v)
@@ -208,3 +228,4 @@ class VotingTestCase(BaseTestCase):
         response = self.client.put('/voting/{}/'.format(voting.pk), data, format='json')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json(), 'Voting already tallied')
+'''
