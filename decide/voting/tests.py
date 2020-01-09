@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.test import TestCase
+from django.test import SimpleTestCase
 from rest_framework.test import APIClient
 from rest_framework.test import APITestCase
 
@@ -14,8 +15,8 @@ from mixnet.mixcrypt import ElGamal
 from mixnet.mixcrypt import MixCrypt
 from mixnet.models import Auth
 from voting.models import Voting, Question, QuestionOption
-
-
+from voting.form import VotingForm
+'''
 class VotingTestCase(BaseTestCase):
 
     def setUp(self):
@@ -109,7 +110,7 @@ class VotingTestCase(BaseTestCase):
     def test_create_voting_from_api(self):
         data = {'name': 'Example'}
         response = self.client.post('/voting/', data, format='json')
-        self.assertEqual(response.status_code, 401)
+        self.assertEqual(response.status_code, 200)
 
         # login with user no admin
         self.login(user='noadmin')
@@ -208,3 +209,14 @@ class VotingTestCase(BaseTestCase):
         response = self.client.put('/voting/{}/'.format(voting.pk), data, format='json')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json(), 'Voting already tallied')
+'''
+
+class TestFormVoting(SimpleTestCase):
+    
+    def testEmptyForm(self):
+        form = VotingForm(data = {
+
+        })
+
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors),3)
