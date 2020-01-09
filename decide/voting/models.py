@@ -14,7 +14,7 @@ ELECCION_SEXO = (
 )
 class Question(models.Model):
     desc = models.TextField()
-
+    escaños=models.PositiveIntegerField(blank=True, null=True)
     def __str__(self):
         return self.desc
 
@@ -28,6 +28,7 @@ class QuestionOption(models.Model):
     number = models.PositiveIntegerField(blank=True, null=True)
     option = models.TextField()
     sexo=models.CharField(max_length=6, choices=ELECCION_SEXO, default='hombre')
+  
     def save(self):
         if not self.number:
             self.number = self.question.options.count() + 2
