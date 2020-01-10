@@ -16,7 +16,8 @@ class VotingForm(forms.ModelForm):
         if start_date is not None and end_date is not None:
             if start_date > end_date:
                 raise forms.ValidationError("End date must be after start date")
-        return cleaned_data
+
+
 
 class QuestionForm(forms.ModelForm):
     class Meta:
