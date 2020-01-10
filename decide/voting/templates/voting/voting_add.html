@@ -96,6 +96,7 @@
                                 {{form.end_date}}
                             </div>
 
+                            {{ form.non_field_errors }}
 
                             <input type="submit" class="btn  btn-primary" value="Submit">
                         </form>
@@ -118,5 +119,13 @@
             format: 'YYYY-MM-DD HH:mm',
         });
     });
+</script>
+<script type="text/javascript">
+
+  let no_record_check = document.getElementsByClassName("errorlist nonfield")[0].innerText;
+
+  if(no_record_check.length > 0){
+    window.alert(no_record_check);
+  }
 </script>
 {% endblock %}
