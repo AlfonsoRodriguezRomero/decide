@@ -29,7 +29,7 @@ install:
  - pip install -r requirements.txt
 script:
  - cd decide
- - ls
+ - python ./manage.py collectstatic
  - python ./manage.py test voting
 sudo: false
 
