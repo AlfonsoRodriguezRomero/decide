@@ -28,8 +28,8 @@ before_install:
 install:
  - pip install -r requirements.txt
 script:
- - python manage.py makemigrations
- - python manage.py migrate
+ - cd decide
+ - cd decide
  - python manage.py test voting
 sudo: false
 
