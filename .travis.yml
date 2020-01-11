@@ -29,8 +29,10 @@ install:
  - pip install -r requirements.txt
 script:
  - cd decide
+ - pwd
  - cd decide
- - python manage.py test voting
+ - pwd
+ - python ./manage.py test voting
 sudo: false
 
 deploy:
