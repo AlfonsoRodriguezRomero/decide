@@ -15,7 +15,7 @@ class TestListAndSearch(unittest.TestCase):
         self.driver.find_element_by_name("campo").click()
         self.driver.find_element_by_name("campo").send_keys("p")
         self.driver.find_element_by_css_selector(".btn-outline-success").click()
-        self.assertTrue(len(self.driver.find_elements_by_id('table'))<2)
+        self.assertTrue(len(self.driver.find_elements_by_class_name('table'))==1)
     def tearDown(self):
         self.driver.quit
 
@@ -34,14 +34,14 @@ class TestCreate():
         self.driver.get("http://localhost:8000/voting/")
         self.driver.find_element_by_link_text("Create voting").click()
         self.driver.find_element_by_id("id_name").click()
-        self.driver.find_element_by_id("id_name").send_keys("aaa")
+        self.driver.find_element_by_id("id_name").send_keys("test1")
         self.driver.find_element_by_id("id_desc").click()
         self.driver.find_element_by_id("id_desc").send_keys("gygygygy")
         self.driver.find_element_by_id("id_question").click()
         self.driver.find_element_by_xpath("//select[@id='id_question']//option[@value='1']").click()
         self.driver.find_element_by_xpath("//select[@id='id_auths']//option[@value='1']").click()
         self.driver.find_element_by_css_selector(".btn").click()
-        #self.assertTrue(len(self.driver.find_elements_by_class('table'))>4)
+        self.assertTrue(len(self.driver.find_elements_by_class_name('table'))==5)
     def tearDown(self):
         self.driver.quit
 
@@ -61,6 +61,7 @@ class TestDelete():
         self.driver.get("http://localhost:8000/voting/")
         self.driver.find_element_by_css_selector("tr:nth-child(2) .btn-danger").click()
         self.driver.find_element_by_css_selector(".btn-danger").click()
+        self.assertTrue(len(self.driver.find_elements_by_class_name('table'))==4)
     def tearDown(self):
         self.driver.quit
 
@@ -79,7 +80,7 @@ class TestEdit():
         self.driver.get("http://localhost:8000/voting/")
         self.driver.find_element_by_css_selector("tr:nth-child(2) .btn-warning").click()
         self.driver.find_element_by_id("id_name").click()
-        self.driver.find_element_by_id("id_name").send_keys("bbb")
+        self.driver.find_element_by_id("id_name").send_keys("pp")
         self.driver.find_element_by_css_selector(".btn").click()
     def tearDown(self):
         self.driver.quit
