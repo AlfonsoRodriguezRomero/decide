@@ -22,7 +22,7 @@ class TestListAndSearch(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-class TestCreate():
+class TestCreate(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
   
@@ -41,7 +41,7 @@ class TestCreate():
         self.driver.find_element_by_xpath("//select[@id='id_question']//option[@value='1']").click()
         self.driver.find_element_by_xpath("//select[@id='id_auths']//option[@value='1']").click()
         self.driver.find_element_by_css_selector(".btn").click()
-        self.assertTrue(len(self.driver.find_elements_by_class_name('table'))==5)
+        self.assertTrue(self.driver.find_elements_by_class_name("card-header"))
     def tearDown(self):
         self.driver.quit
 
@@ -49,7 +49,7 @@ if __name__ == '__main__':
     unittest.main()
 
 
-class TestDelete():
+class TestDelete(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
   
@@ -61,14 +61,14 @@ class TestDelete():
         self.driver.get("http://localhost:8000/voting/")
         self.driver.find_element_by_css_selector("tr:nth-child(2) .btn-danger").click()
         self.driver.find_element_by_css_selector(".btn-danger").click()
-        self.assertTrue(len(self.driver.find_elements_by_class_name('table'))==4)
+        self.assertTrue(self.driver.find_elements_by_class_name("card-header"))
     def tearDown(self):
         self.driver.quit
 
 if __name__ == '__main__':
     unittest.main()
 
-class TestEdit():
+class TestEdit(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
   
@@ -82,6 +82,7 @@ class TestEdit():
         self.driver.find_element_by_id("id_name").click()
         self.driver.find_element_by_id("id_name").send_keys("pp")
         self.driver.find_element_by_css_selector(".btn").click()
+        self.assertTrue(self.driver.find_elements_by_class_name("card-header"))
     def tearDown(self):
         self.driver.quit
 
