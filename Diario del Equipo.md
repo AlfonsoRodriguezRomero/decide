@@ -18,14 +18,43 @@
 
 <h1>Resumen de total de reuniones empleadas en el equipo</h1>
 
-    Total de reuniones: 5
+    Total de reuniones: 6
     Total de reuniones presenciales: 2
-    Total de reuniones virtuales: 3
+    Total de reuniones virtuales: 4
     Total de tiempo empleado en reuniones presenciales: 4h
-    Total de tiempo empleado en reuniones virtuales: 6h 10min
+    Total de tiempo empleado en reuniones virtuales: 7h 10min
 
 <h1>Actas de acuerdos de las reuniones en las que se tomaron decisiones importantes -
 (ACTA 2019-01)</h1>
+
+<h2>ACTA 2019-10-20</h2>
+<PRE><CODE>
+  <UL>
+	  <LI><H3>Asistentes:</H3>
+      <UL>
+        <LI>Alberto Ángel González
+        <LI>Francisco Javier Elena Fernández
+        <LI>Daniel Hinojo García
+        <LI>Alfonso Manuel Rodríguez Romero
+        <LI>Lorenzo Rondán Domínguez
+       </UL>
+	  <LI><H3>Orden del dia:</H3>
+       <UL>
+        <LI>Definir bases del grupo
+        <LI>Desplegar decide en local
+       </UL>
+    <LI><H3>Acuerdos tomados:</H3>
+      <UL>
+        <LI>Quedan definidas las bases del grupo de trabajo
+        <LI>Todos los miembros han desplegado "decide" en local
+	  </UL>
+    </PRE></CODE>
+
+<hr>       
+
+
+
+
 <h2>ACTA 2019-11-28</h2>
 <PRE><CODE>
   <UL>
