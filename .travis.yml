@@ -13,24 +13,11 @@ before_script:
 language: python
 python:
 - '3.6'
-cache: pip
-env:
- - MOZ_HEADLESS=1
-addons:
- firefox: latest
-before_install:
- - wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
- - mkdir geckodriver
- - tar -xzf geckodriver-v0.18.0-linux64.tar.gz -C geckodriver
- - export PATH=$PATH:$PWD/geckodriver
- - geckodriver --version
- - export MOZ_HEADLESS=1
 install:
  - pip install -r requirements.txt
 script:
  - cd decide
- - python ./manage.py test voting --keepdb
-sudo: false
+# - python ./manage.py test voting --keepdb
 
 deploy:
   skip_cleanup: true
