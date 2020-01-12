@@ -14,7 +14,7 @@ from mixnet.mixcrypt import ElGamal
 from mixnet.mixcrypt import MixCrypt
 from mixnet.models import Auth
 from voting.models import Voting, Question, QuestionOption
-
+from voting.form import VotingForm
 
 """class VotingTestCase(BaseTestCase):
 
@@ -250,3 +250,13 @@ class QuestionOptionTest(TestCase):
             self.test_questionOption.delete()
             
             
+
+class TestFormVoting(TestCase):
+    
+    def testEmptyForm(self):
+        form = VotingForm(data = {
+
+        })
+
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors),3)
