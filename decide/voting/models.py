@@ -15,11 +15,12 @@ ELECCION_SEXO = (
 class Question(models.Model):
     desc = models.TextField()
     escaños=models.PositiveIntegerField(blank=True, null=True)
+
     def __str__(self):
         return self.desc
 
-    def get_all_questions():
-        questions = Question.objects.all()
+    def get_all_questions(self):
+        questions = self.objects.all()
         return questions
 
 

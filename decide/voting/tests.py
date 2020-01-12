@@ -14,9 +14,9 @@ from mixnet.mixcrypt import ElGamal
 from mixnet.mixcrypt import MixCrypt
 from mixnet.models import Auth
 from voting.models import Voting, Question, QuestionOption
+from voting.form import VotingForm
 
-
-class VotingTestCase(BaseTestCase):
+"""class VotingTestCase(BaseTestCase):
 
     def setUp(self):
         super().setUp()
@@ -208,3 +208,55 @@ class VotingTestCase(BaseTestCase):
         response = self.client.put('/voting/{}/'.format(voting.pk), data, format='json')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json(), 'Voting already tallied')
+        """
+#Test crear question
+class QuestionModelTest(TestCase):
+        def setUp(self):
+            self.test_question = Question(desc = "Descripción de prueba3", escaños = 760)
+            self.test_question.save()
+
+        def test_question_creation(self):
+            self.assertEquals(self.test_question.desc, "Descripción de prueba3")
+            self.assertEquals(self.test_question.escaños, 760)
+
+        def test_str_question(self):
+            self.assertEquals(str(self.test_question), "Descripción de prueba3")     
+
+        def tearDown(self):
+            self.test_question.delete() 
+
+#Test crear questionOption
+class QuestionOptionTest(TestCase):
+
+        def setUp(self):
+            self.test_question = Question(desc = "Descripción de prueba", escaños = 360)
+            self.test_question.save()
+            self.test_questionOption = QuestionOption(question = self.test_question, number = 2, option="Prueba option", sexo = 'MUJER')
+            self.test_questionOption.save()
+            
+
+        def test_quiestionoption_creation(self):
+            self.assertEquals(self.test_questionOption.question, self.test_question)
+            self.assertEquals(self.test_questionOption.number, 2 )
+            self.assertEquals(self.test_questionOption.option, "Prueba option")
+            self.assertEquals(self.test_questionOption.sexo, "MUJER")
+
+        def test_str_question(self):
+            self.assertEquals(str(self.test_questionOption), "Prueba option (2)")    
+
+        
+        def tearDown(self):
+            self.test_question.delete()
+            self.test_questionOption.delete()
+            
+            
+
+class TestFormVoting(TestCase):
+    
+    def testEmptyForm(self):
+        form = VotingForm(data = {
+
+        })
+
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors),3)
