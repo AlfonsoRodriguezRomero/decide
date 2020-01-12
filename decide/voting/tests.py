@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.test import TestCase
+from django.test import SimpleTestCase
 from rest_framework.test import APIClient
 from rest_framework.test import APITestCase
 
@@ -249,6 +250,7 @@ class QuestionOptionTest(TestCase):
             self.test_question.delete()
             self.test_questionOption.delete()
             
+<<<<<<< HEAD
             
 
 class TestFormVoting(TestCase):
@@ -260,3 +262,12 @@ class TestFormVoting(TestCase):
 
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors),3)
+=======
+class TestFormVoting(SimpleTestCase):
+
+        def testEmptyForm(self):
+            form = VotingForm(data = {
+            })
+            self.assertFalse(form.is_valid())
+            self.assertEquals(len(form.errors),3)           
+>>>>>>> alberto-develop
