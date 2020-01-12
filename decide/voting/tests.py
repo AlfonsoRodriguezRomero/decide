@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.test import TestCase
+from django.test import SimpleTestCase
 from rest_framework.test import APIClient
 from rest_framework.test import APITestCase
 
@@ -14,7 +15,7 @@ from mixnet.mixcrypt import ElGamal
 from mixnet.mixcrypt import MixCrypt
 from mixnet.models import Auth
 from voting.models import Voting, Question, QuestionOption
-
+from voting.form import VotingForm
 
 """class VotingTestCase(BaseTestCase):
 
@@ -249,4 +250,10 @@ class QuestionOptionTest(TestCase):
             self.test_question.delete()
             self.test_questionOption.delete()
             
-            
+class TestFormVoting(SimpleTestCase):
+
+        def testEmptyForm(self):
+            form = VotingForm(data = {
+            })
+            self.assertFalse(form.is_valid())
+            self.assertEquals(len(form.errors),3)           
